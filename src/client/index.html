@@ -46,7 +46,7 @@
         </div> -->
         <div class="container">
             <div class="row">
-                <div class="col-xs-12">
+                <div class="col-xs-12 col-md-6">
                     <ui-select ng-model="selectedCountry" theme="bootstrap" on-select="AreaChanged($item, $model)">
                         <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
                         <ui-select-choices repeat="item in places | filter: $select.search">
@@ -54,6 +54,9 @@
                             <strong ng-bind-html="item.countryCode | highlight: $select.search"></strong>
                         </ui-select-choices>
                     </ui-select>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    
                 </div>
                 <div class="col-xs-12">
                     <h3>twitter feeds</h3>

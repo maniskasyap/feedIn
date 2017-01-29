@@ -16,7 +16,10 @@
             }
             dataservice.getCountries().then(function(data) {
                 $rootScope.places = data.filter(getPlaces);
-                $rootScope.selectedCountry = data[0];
+                $rootScope.selectedCountry = $rootScope.places[0];
+                // dataservice.getWeather($rootScope.selectedCountry.woeid).then(function(weather) {
+                // 	$rootScope.weatherData = weather;
+                // });
                 dataservice.getTopTrending_twitter($rootScope.selectedCountry.woeid).then(function(data) {
                     $rootScope.trending_twitter = data;
                 });

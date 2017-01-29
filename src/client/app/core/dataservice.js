@@ -62,5 +62,19 @@
                 return exception.catcher('XHR Failed for getCountries')(e);
             }
         }
+
+        function getWeather(countryId) {
+             return $http.get('/api/weather/' + countryId)
+                .then(success)
+                .catch(fail);
+
+            function success(response) {
+                return response.data;
+            }
+
+            function fail(e) {
+                return exception.catcher('XHR Failed for getCountries')(e);
+            }
+        }
     }
 })();

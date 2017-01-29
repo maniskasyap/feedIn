@@ -13,6 +13,7 @@ var T = new Twit({
 });
 
 router.get('/feeds/twitter/:countryId', getTopTrending_twitter);
+// router.get('/weather/:countryId', getWeather);
 router.get('/countries/twitter', getPlaces_twitter);
 router.get('/people', getPeople);
 router.get('/person/:id', getPerson);
@@ -50,4 +51,8 @@ function getPlaces_twitter(req, res, next) {
     T.get('https://api.twitter.com/1.1/trends/available.json', function(err, data, response) {
         return res.send(data);
     });
+}
+
+function getWeather(req, res, next) {
+  
 }
