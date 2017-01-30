@@ -44,30 +44,8 @@
                 </div>
             </div>
         </div> -->
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-md-6">
-                    <ui-select ng-model="selectedCountry" theme="bootstrap" on-select="AreaChanged($item, $model)">
-                        <ui-select-match placeholder="Select or search a country in the list...">{{$select.selected.name}}</ui-select-match>
-                        <ui-select-choices repeat="item in places | filter: $select.search">
-                            <div ng-bind-html="item.name | highlight: $select.search"></div>
-                            <strong ng-bind-html="item.countryCode | highlight: $select.search"></strong>
-                        </ui-select-choices>
-                    </ui-select>
-                </div>
-                <div class="col-xs-12 col-md-6">
-                    
-                </div>
-                <div class="col-xs-12">
-                    <h3>twitter feeds</h3>
-                </div>
-                <div class="col-xs-12 col-md-6" ng-repeat="trend in trending_twitter[0].trends">
-                    <h4><a href="{{trend.url}}" target="_blank">{{trend.name}}</a></h4>
-                    <small ng-show="trend.tweet_volume">{{trend.tweet_volume}} tweets</small>
-                </div>
-            </div>
-        </div>
-        <!-- <div ui-view=""></div> -->
+        
+        <div ui-view="twitter"></div>
     </div>
     <!-- build:js js/lib.js -->
     <!-- bower:js -->
@@ -94,6 +72,7 @@
     <script src="/src/client/app/core/core.module.js"></script>
     <script src="/src/client/app/dashboard/dashboard.module.js"></script>
     <script src="/src/client/app/layout/layout.module.js"></script>
+    <script src="/src/client/app/trends/trends.module.js"></script>
     <script src="/src/client/app/widgets/widgets.module.js"></script>
     <script src="/src/client/app/admin/admin.controller.js"></script>
     <script src="/src/client/app/admin/admin.route.js"></script>
@@ -111,6 +90,8 @@
     <script src="/src/client/app/layout/ht-top-nav.directive.js"></script>
     <script src="/src/client/app/layout/shell.controller.js"></script>
     <script src="/src/client/app/layout/sidebar.controller.js"></script>
+    <script src="/src/client/app/trends/trends.controller.js"></script>
+    <script src="/src/client/app/trends/trends.route.js"></script>
     <script src="/src/client/app/widgets/ht-img-person.directive.js"></script>
     <script src="/src/client/app/widgets/ht-widget-header.directive.js"></script>
     <!-- endinject -->

@@ -6,7 +6,8 @@
             'app.widgets',
             'app.admin',
             'app.dashboard',
-            'app.layout'
+            'app.layout',
+            'app.trends'
         ])
         .run(function($rootScope, dataservice) {
             $rootScope.AreaChanged = function(item, model) {

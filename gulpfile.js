@@ -139,7 +139,15 @@ gulp.task('wiredep', function() {
     .pipe(gulp.dest(config.client));
 });
 
-gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function() {
+gulp.task('annotate', function() {
+  log('annotating with dependencies');
+
+  return gulp.src(config.clientApp + "**/trends.controller.js")
+    .pipe($.ngAnnotate())
+    .pipe(gulp.dest(config.root + 'dist'));
+});
+
+gulp.task('inject', ['wiredep', 'styles', 'templatecache', 'annotate'], function() {
   log('Wire up css into the html, after files are ready');
 
   return gulp
