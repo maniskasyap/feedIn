@@ -12,7 +12,8 @@
             getPeople: getPeople,
             getMessageCount: getMessageCount,
             getCountries: getCountries,
-            getTopTrending_twitter: getTopTrending_twitter
+            getTopTrending_twitter: getTopTrending_twitter,
+            getTrendingVideos_youtube: getTrendingVideos_youtube
         };
 
         return service;
@@ -36,6 +37,21 @@
 
         function getTopTrending_twitter(countryId) {
              return $http.get('/api/feeds/twitter/' + countryId)
+            //return $http.get('/api/people')
+                .then(success)
+                .catch(fail);
+
+            function success(response) {
+                return response.data;
+            }
+
+            function fail(e) {
+                return exception.catcher('XHR Failed for getTopTrending_twitter')(e);
+            }
+        }
+
+        function getTrendingVideos_youtube(countryId) {
+             return $http.get('/api/videos/trending/youtube')
             //return $http.get('/api/people')
                 .then(success)
                 .catch(fail);

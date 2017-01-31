@@ -27,6 +27,9 @@
                     $scope.trending_twitter = data;
                 });
             });
+            dataservice.getTrendingVideos_youtube().then(function(data) {
+                $scope.ytubeVideos = data;
+            })
         }
 
         function getPlaces(item) {

@@ -3,6 +3,8 @@ var four0four = require('./utils/404')();
 var data = require('./data');
 
 var Twit = require('../../node_modules/twit/lib/twitter');
+var google = require('googleapis');
+var youtube = google.youtube('v3');
 
 var T = new Twit({
     consumer_key: 'BMyZguekdL4eKQkmKWQRIJitE',
@@ -12,9 +14,14 @@ var T = new Twit({
     timeout_ms: 60 * 1000, // optional HTTP request timeout to apply to all requests.
 });
 
+var ytube = {
+    api_key : 'AIzaSyDZZ51DN9-o-MYK4iHTpZ0iI1teBg-JeFg'
+};
+
 router.get('/feeds/twitter/:countryId', getTopTrending_twitter);
 // router.get('/weather/:countryId', getWeather);
 router.get('/countries/twitter', getPlaces_twitter);
+router.get('/videos/trending/youtube', getTrendingVideos_youtube)
 router.get('/people', getPeople);
 router.get('/person/:id', getPerson);
 router.get('/*', four0four.notFoundMiddleware);
@@ -22,6 +29,16 @@ router.get('/*', four0four.notFoundMiddleware);
 module.exports = router;
 
 //////////////
+
+function getTrendingVideos_youtube(req, res, next) {
+    youtube.videos.list({
+        auth: ytube.api_key,
+        part: 'player',
+        chart: 'mostPopular'
+    }, function(err, data) {
+        res.send(data);
+    });
+}
 
 function getPeople(req, res, next) {
     res.status(200).send(data.people);
@@ -54,5 +71,5 @@ function getPlaces_twitter(req, res, next) {
 }
 
 function getWeather(req, res, next) {
-  
+
 }
