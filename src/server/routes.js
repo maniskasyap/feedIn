@@ -1,6 +1,7 @@
 var router = require('express').Router();
 var four0four = require('./utils/404')();
 var data = require('./data');
+var data_youtube = require('./data/youtube');
 
 var Twit = require('../../node_modules/twit/lib/twitter');
 var google = require('googleapis');
@@ -21,7 +22,7 @@ var ytube = {
 router.get('/feeds/twitter/:countryId', getTopTrending_twitter);
 // router.get('/weather/:countryId', getWeather);
 router.get('/countries/twitter', getPlaces_twitter);
-router.get('/videos/trending/youtube', getTrendingVideos_youtube)
+router.get('/videos/trending/youtube/:countryId', getTrendingVideos_youtube)
 router.get('/people', getPeople);
 router.get('/person/:id', getPerson);
 router.get('/*', four0four.notFoundMiddleware);
@@ -31,13 +32,15 @@ module.exports = router;
 //////////////
 
 function getTrendingVideos_youtube(req, res, next) {
-    youtube.videos.list({
-        auth: ytube.api_key,
-        part: 'player',
-        chart: 'mostPopular'
-    }, function(err, data) {
-        res.send(data);
-    });
+    // youtube.videos.list({
+    //     auth: ytube.api_key,
+    //     part: 'player',
+    //     chart: 'mostPopular',
+    //     regionCode: req.params.countryId
+    // }, function(err, data) {
+    //     res.send(data);
+    // });
+    res.send(data_youtube);
 }
 
 function getPeople(req, res, next) {

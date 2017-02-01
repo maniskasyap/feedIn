@@ -18,10 +18,15 @@
                 url: '/',
                 title: 'trends',
                 views: {
-                    twitter: {
+                    // twitter: {
+                    //     controller: 'TrendsController',
+                    //     controllerAs: 'vm',
+                    //     templateUrl: "app/trends/twitter.html"
+                    // },
+                    youtube: {
                         controller: 'TrendsController',
                         controllerAs: 'vm',
-                        templateUrl: "app/trends/twitter.html"
+                        templateUrl: "app/trends/youtube.html"
                     },
                     weather: {
                         controller: 'TrendsController',

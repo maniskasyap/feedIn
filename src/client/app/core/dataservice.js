@@ -51,7 +51,7 @@
         }
 
         function getTrendingVideos_youtube(countryId) {
-             return $http.get('/api/videos/trending/youtube')
+             return $http.get('/api/videos/trending/youtube/' + countryId)
             //return $http.get('/api/people')
                 .then(success)
                 .catch(fail);
