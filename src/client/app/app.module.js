@@ -7,6 +7,7 @@
             'app.admin',
             'app.dashboard',
             'app.layout',
+            'app.home',
             'app.trends'
         ])
         .run(function($rootScope, dataservice) {

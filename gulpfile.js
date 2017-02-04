@@ -68,6 +68,7 @@ gulp.task('styles', ['clean-styles'], function() {
     .pipe($.less())
     //        .on('error', errorLogger) // more verbose and dupe output. requires emit.
     .pipe($.autoprefixer({ browsers: ['last 2 version', '> 5%'] }))
+    .pipe($.concat('styles.css'))
     .pipe(gulp.dest(config.temp));
 });
 
@@ -97,7 +98,7 @@ gulp.task('images', ['clean-images'], function() {
 });
 
 gulp.task('less-watcher', function() {
-  gulp.watch([config.less], ['styles']);
+  gulp.watch(config.less, ['styles']);
 });
 
 /**
@@ -388,6 +389,7 @@ gulp.task('browserSyncReload', ['optimize'], browserSync.reload);
  */
 function changeEvent(event) {
   var srcPattern = new RegExp('/.*(?=/' + config.source + ')/');
+  log('manish --> ' + srcPattern);
   log('File ' + event.path.replace(srcPattern, '') + ' ' + event.type);
 }
 
@@ -501,7 +503,7 @@ function startBrowserSync(isDev, specRunner) {
   // If build: watches the files, builds, and restarts browser-sync.
   // If dev: watches less, compiles it to css, browser-sync handles reload
   if (isDev) {
-    gulp.watch([config.less], ['styles'])
+    gulp.watch(config.less, ['styles'])
       .on('change', changeEvent);
   } else {
     gulp.watch([config.less, config.js, config.html], ['browserSyncReload'])

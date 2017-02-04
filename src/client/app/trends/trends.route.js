@@ -15,7 +15,7 @@
         return [{
             state: 'trends',
             config: {
-                url: '/',
+                url: '/trends',
                 title: 'trends',
                 views: {
                     twitter: {
