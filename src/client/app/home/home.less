@@ -1,68 +1,93 @@
-.container_logos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    & .twitter_logo {
-        display: flex;
-        height: 10em;
-        width: 10em;
-        border-radius: 50%;
-        background-color: #1b95e0;
-        animation: 3s infinite alternate wander_t;
-        & span {
-            font-weight: bold;
-            font-size: 1.5em;
-        }
-        & i {
-            margin: auto;
-        }
+@color-1: #54494B;
+@color-2: #F1F7ED;
+@color-3: #91C7B1;
+@color-4: #B33951;
+@color-5: #E3D081;
+.home {
+    .jumbotron {
+        background-color: @color-5;
+        border-radius: 0;
+        margin-bottom: 0;
     }
-    & .youtube_logo {
-        display: flex;
-        height: 10em;
-        width: 10em;
-        border-radius: 50%;
-        background-color: #cc181e;
-        z-index: 999;
-        animation: 3s infinite alternate wander_y;
-        & span {
-            font-weight: bold;
-            font-size: 1.5em;
-        }
-        & i {
-            margin: auto;
-        }
+    .jumbotron:nth-child(2) {
+        background-color: @color-3;
     }
-    & .insta_logo {
-        display: flex;
-        height: 10em;
-        width: 10em;
-        border-radius: 50%;
-        background-color: #7a37c4;
-        z-index: 999;
-        animation: 3s infinite alternate wander_insta;
-        & span {
-            font-weight: bold;
-            font-size: 1.5em;
-        }
-        & i {
-            margin: auto;
-        }
+    .jumbotron:nth-child(3) {
+        background-color: @color-2;
     }
-    & .fb_logo {
+    .container_logos {
+        // background-color: @color-4;
         display: flex;
-        height: 10em;
-        width: 10em;
-        border-radius: 50%;
-        background-color: #4267b2;
-        z-index: 999;
-        animation: 3s infinite alternate wander_fb;
-        & span {
-            font-weight: bold;
-            font-size: 1.5em;
+        justify-content: center;
+        align-items: center;
+        & .twitter_logo {
+            display: flex;
+            height: 10em;
+            width: 10em;
+            border-radius: 50%;
+            background-color: #1b95e0;
+            // box-shadow: 3px 3px 5px 2px #fff;
+            // background: radial-gradient(#1b95e0, #fff);
+            animation: 3s infinite alternate wander_t;
+            & span {
+                font-weight: bold;
+                font-size: 1.5em;
+            }
+            & i {
+                margin: auto;
+                color: white;
+            }
         }
-        & i {
-            margin: auto;
+        & .youtube_logo {
+            display: flex;
+            height: 10em;
+            width: 10em;
+            border-radius: 50%;
+            background-color: #cc181e;
+            z-index: 999;
+            animation: 3s infinite alternate wander_y;
+            & span {
+                font-weight: bold;
+                font-size: 1.5em;
+            }
+            & i {
+                margin: auto;
+                color: white;
+            }
+        }
+        & .insta_logo {
+            display: flex;
+            height: 10em;
+            width: 10em;
+            border-radius: 50%;
+            background-color: #7a37c4;
+            z-index: 999;
+            animation: 3s infinite alternate wander_insta;
+            & span {
+                font-weight: bold;
+                font-size: 1.5em;
+            }
+            & i {
+                margin: auto;
+                color: white;
+            }
+        }
+        & .fb_logo {
+            display: flex;
+            height: 10em;
+            width: 10em;
+            border-radius: 50%;
+            background-color: #4267b2;
+            z-index: 999;
+            animation: 3s infinite alternate wander_fb;
+            & span {
+                font-weight: bold;
+                font-size: 1.5em;
+            }
+            & i {
+                margin: auto;
+                color: white;
+            }
         }
     }
 }
@@ -75,6 +100,7 @@
         transform: translate3d(0, 0, 0);
     }
 }
+
 @keyframes wander_y {
     from {
         transform: translate3d(0, 0, 0);
@@ -83,6 +109,7 @@
         transform: translate3d(0, 0.5em, 0);
     }
 }
+
 @keyframes wander_fb {
     from {
         transform: translate3d(0, 0, 0);
@@ -91,6 +118,7 @@
         transform: translate3d(0, 0.5em, 0);
     }
 }
+
 @keyframes wander_insta {
     from {
         transform: translate3d(0, 0.5em, 0);

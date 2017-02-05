@@ -1,3 +1,5 @@
+var express = require('express');
+var app = express();
 var router = require('express').Router();
 var four0four = require('./utils/404')();
 var data = require('./data');
@@ -16,9 +18,10 @@ var T = new Twit({
 });
 
 var ytube = {
-    api_key : 'AIzaSyDZZ51DN9-o-MYK4iHTpZ0iI1teBg-JeFg'
+    api_key: 'AIzaSyDZZ51DN9-o-MYK4iHTpZ0iI1teBg-JeFg'
 };
 
+router.get('/qotd', getRandomQuote);
 router.get('/feeds/twitter/:countryId', getTopTrending_twitter);
 // router.get('/weather/:countryId', getWeather);
 router.get('/countries/twitter', getPlaces_twitter);
@@ -30,6 +33,12 @@ router.get('/*', four0four.notFoundMiddleware);
 module.exports = router;
 
 //////////////
+
+function getRandomQuote(req, res, next) {
+    app.get('http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1', function(err, data, response) {
+        return res.send(data);
+    });
+}
 
 function getTrendingVideos_youtube(req, res, next) {
     // youtube.videos.list({

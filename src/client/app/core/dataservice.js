@@ -13,13 +13,15 @@
             getMessageCount: getMessageCount,
             getCountries: getCountries,
             getTopTrending_twitter: getTopTrending_twitter,
-            getTrendingVideos_youtube: getTrendingVideos_youtube
+            getTrendingVideos_youtube: getTrendingVideos_youtube,
+            qotd: qotd
         };
 
         return service;
 
         function getMessageCount() {
-            return $q.when(72); }
+            return $q.when(72);
+        }
 
         function getPeople() {
             return $http.get('/api/people')
@@ -35,9 +37,23 @@
             }
         }
 
+        function qotd() {
+            return $http.get('/api/qotd')
+                .then(success)
+                .catch(fail);
+
+            function success(response) {
+                return response.data;
+            }
+
+            function fail(e) {
+                return exception.catcher('XHR Failed for getTopTrending_twitter')(e);
+            }
+        }
+
         function getTopTrending_twitter(countryId) {
-             return $http.get('/api/feeds/twitter/' + countryId)
-            //return $http.get('/api/people')
+            return $http.get('/api/feeds/twitter/' + countryId)
+                //return $http.get('/api/people')
                 .then(success)
                 .catch(fail);
 
@@ -51,8 +67,8 @@
         }
 
         function getTrendingVideos_youtube(countryId) {
-             return $http.get('/api/videos/trending/youtube/' + countryId)
-            //return $http.get('/api/people')
+            return $http.get('/api/videos/trending/youtube/' + countryId)
+                //return $http.get('/api/people')
                 .then(success)
                 .catch(fail);
 
@@ -66,7 +82,7 @@
         }
 
         function getCountries() {
-             return $http.get('/api/countries/twitter')
+            return $http.get('/api/countries/twitter')
                 .then(success)
                 .catch(fail);
 
@@ -80,7 +96,7 @@
         }
 
         function getWeather(countryId) {
-             return $http.get('/api/weather/' + countryId)
+            return $http.get('/api/weather/' + countryId)
                 .then(success)
                 .catch(fail);
 
