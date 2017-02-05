@@ -1,46 +1,46 @@
-
-
-/*#region twitter */
-
-.container_twitter {
+.container_logos {
     & .twitter_logo {
         height: 10em;
         width: 10em;
         border-radius: 50%;
         background-color: #1b95e0;
-        animation: 3s infinite alternate wander;
-
-
+        animation: 3s infinite alternate wander_t;
         & span {
             font-weight: bold;
             font-size: 1.5em;
         }
     }
-}
-
-@keyframes wander {
-	from {
-		transform: translate3d(30em, 10em, 0) scale(1.2);
-	}
-	to {
-		transform: translate3d(0, 0, 0);
-	}
-}
-
-
-/*#endregion */
-/*#region youtube */
-
-.container_youtube {
     & .youtube_logo {
         height: 10em;
         width: 10em;
         border-radius: 50%;
         background-color: #cc181e;
         z-index: 999;
-        animation: 3s infinite alternate wander;
-
-
+        animation: 3s infinite alternate wander_y;
+        & span {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+    }
+    & .insta_logo {
+        height: 10em;
+        width: 10em;
+        border-radius: 50%;
+        background-color: #7a37c4;
+        z-index: 999;
+        animation: 3s infinite alternate wander_insta;
+        & span {
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+    }
+    & .fb_logo {
+        height: 10em;
+        width: 10em;
+        border-radius: 50%;
+        background-color: #4267b2;
+        z-index: 999;
+        animation: 3s infinite alternate wander_fb;
         & span {
             font-weight: bold;
             font-size: 1.5em;
@@ -48,14 +48,35 @@
     }
 }
 
-@keyframes wander {
-	from {
-		transform: translate3d(10em, 30em, 0) scale(1.5);
-	}
-	to {
-		transform: translate3d(20em, 10em, 0);
-	}
+@keyframes wander_t {
+    from {
+        transform: translate3d(30em, 10em, 0) scale(1.2);
+    }
+    to {
+        transform: translate3d(0, 0, 0);
+    }
 }
-
-
-/*#endregion */
+@keyframes wander_y {
+    from {
+        transform: translate3d(10em, 30em, 0) scale(1.5);
+    }
+    to {
+        transform: translate3d(20em, 10em, 0);
+    }
+}
+@keyframes wander_fb {
+    from {
+        transform: translate3d(10em, 30em, 0) scale(1.5);
+    }
+    to {
+        transform: translate3d(20em, 10em, 0);
+    }
+}
+@keyframes wander_insta {
+    from {
+        transform: translate3d(10em, 30em, 0) scale(1.5);
+    }
+    to {
+        transform: translate3d(20em, 10em, 0);
+    }
+}
