@@ -1,5 +1,9 @@
 .container_logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     & .twitter_logo {
+        display: flex;
         height: 10em;
         width: 10em;
         border-radius: 50%;
@@ -9,8 +13,12 @@
             font-weight: bold;
             font-size: 1.5em;
         }
+        & i {
+            margin: auto;
+        }
     }
     & .youtube_logo {
+        display: flex;
         height: 10em;
         width: 10em;
         border-radius: 50%;
@@ -21,8 +29,12 @@
             font-weight: bold;
             font-size: 1.5em;
         }
+        & i {
+            margin: auto;
+        }
     }
     & .insta_logo {
+        display: flex;
         height: 10em;
         width: 10em;
         border-radius: 50%;
@@ -33,8 +45,12 @@
             font-weight: bold;
             font-size: 1.5em;
         }
+        & i {
+            margin: auto;
+        }
     }
     & .fb_logo {
+        display: flex;
         height: 10em;
         width: 10em;
         border-radius: 50%;
@@ -45,12 +61,15 @@
             font-weight: bold;
             font-size: 1.5em;
         }
+        & i {
+            margin: auto;
+        }
     }
 }
 
 @keyframes wander_t {
     from {
-        transform: translate3d(30em, 10em, 0) scale(1.2);
+        transform: translate3d(0, 0.5em, 0);
     }
     to {
         transform: translate3d(0, 0, 0);
@@ -58,25 +77,25 @@
 }
 @keyframes wander_y {
     from {
-        transform: translate3d(10em, 30em, 0) scale(1.5);
+        transform: translate3d(0, 0, 0);
     }
     to {
-        transform: translate3d(20em, 10em, 0);
+        transform: translate3d(0, 0.5em, 0);
     }
 }
 @keyframes wander_fb {
     from {
-        transform: translate3d(10em, 30em, 0) scale(1.5);
+        transform: translate3d(0, 0, 0);
     }
     to {
-        transform: translate3d(20em, 10em, 0);
+        transform: translate3d(0, 0.5em, 0);
     }
 }
 @keyframes wander_insta {
     from {
-        transform: translate3d(10em, 30em, 0) scale(1.5);
+        transform: translate3d(0, 0.5em, 0);
     }
     to {
-        transform: translate3d(20em, 10em, 0);
+        transform: translate3d(0, 0, 0);
     }
 }
